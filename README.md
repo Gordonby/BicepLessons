@@ -1,4 +1,4 @@
-# BicepLessons
+# Bicep Lessons
 Gotchas and workarounds for bicep lang
 
 ## 1 - Conditionality on objects.
