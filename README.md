@@ -76,3 +76,4 @@ var appGw_nsg = {
 var appgw_subnet = ingressApplicationGateway && networkSecurityGroups ? union(appgw_baseSubnet,appGw_nsg) : appgw_baseSubnet
 ```
 
+The problem has been captured and linked to the bicep repo via this issue: https://github.com/Gordonby/BicepLessons/issues/1
