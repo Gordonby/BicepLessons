@@ -5,7 +5,7 @@ Gotchas and workarounds for bicep lang
 
 When creating a highly conditional bicep module, IE. one that will deploy different resources or different configuration of resources based on the parameters. Authors need to be aware of the different behaviour that the Azure Resource Providers have.
 
-### Scenario : Network Security Group
+### Scenario : Empty Object Properties
 
 The scenario here is that an virtual network subnet is being created for Azure Application Gateway. Conditonally, the subnet will have an NSG. However 
 
