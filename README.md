@@ -7,7 +7,7 @@ When creating a highly conditional bicep module, IE. one that will deploy differ
 
 ### Scenario : Empty Object Properties
 
-The scenario here is that an virtual network subnet is being created for Azure Application Gateway. Conditonally, the subnet will have an NSG. However 
+The scenario here is that a virtual network subnet is being created for Azure Application Gateway. Conditonally, the subnet will have an NSG. 
 
 In the case of setting the condition on the subnet directly, the syntax doesn't work. It results in `Value for reference id is missing. Path properties.subnets[4].properties.networkSecurityGroup.`
 
