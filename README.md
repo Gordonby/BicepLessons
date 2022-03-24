@@ -2,7 +2,7 @@
 
 Gotchas and workarounds for bicep lang.
 
-These examples are derived from questions i've received about bicep lang, or through problems i've encountered and pattered.
+These examples are derived from questions i've received about bicep lang, or through problems i've encountered and patteren'd.
 
 Category | Scenario | Link | Corresponding Issue
 -------- | -------- | ---- | -------------------
