@@ -16,4 +16,9 @@ First error: MSI endpoint is not responding. Please make sure MSI is configured 
 
 ## Other
 
+
+### Multi-call binary
+
 > "message": "The provided script failed with multiple errors. First error:\r\nBusyBox v1.33.1 () multi-call binary.. Please refer to https://aka.ms/DeploymentScriptsTroubleshoot for more deployment script information."
+
+It's likely there's a problem with your script. Extract it from the deploymentscript script content property and test locally with the same inputs.
