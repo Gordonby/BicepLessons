@@ -65,3 +65,51 @@ resource vnetLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06
     }
   }
 }
+
+@description('Composing the subnetId')
+var mysqlSubnetId =  '${vnetLink.properties.virtualNetwork.id}/subnets/${subnetName}'
+
+param deployMySql bool = false
+
+@description('Database administrator login name')
+@minLength(1)
+param administratorLogin string = 'admingeneric'
+
+@description('Database administrator password')
+@minLength(8)
+@secure()
+param administratorLoginPassword string = newGuid()
+
+@description('Server Name for Azure database for MySQL')
+param serverName string = 'mysqldb'
+
+resource mysqlDbServer 'Microsoft.DBforMySQL/flexibleServers@2021-05-01' = if(deployMySql) {
+  name: serverName
+  location: location
+  sku: {
+    name: 'Standard_B1s'
+    tier: 'Burstable'
+  }
+  properties: {
+    administratorLogin: administratorLogin
+    administratorLoginPassword: administratorLoginPassword
+    storage: {
+      autoGrow: 'Enabled'
+      iops: 360
+      storageSizeGB: 20
+    }
+    createMode: 'Default'
+    version: '8.0.21'
+    backup: {
+      backupRetentionDays: 7
+      geoRedundantBackup: 'Disabled'
+    }
+    highAvailability: {
+      mode: 'Disabled'
+    }
+    network: {
+      delegatedSubnetResourceId: mysqlSubnetId
+      privateDnsZoneResourceId: dnszone.id
+    }
+  }
+}
