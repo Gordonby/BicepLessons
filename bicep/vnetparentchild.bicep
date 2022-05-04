@@ -1,8 +1,8 @@
-// @description('Name for DNS Private Zone')
-// param dnsZoneName string 
+@description('Name for DNS Private Zone')
+param dnsZoneName string = 'contoso'
 
-// @description('Fully Qualified DNS Private Zone')
-// param dnsZoneFqdn string = '${dnsZoneName}.private.mysql.database.azure.com'
+@description('Fully Qualified DNS Private Zone')
+param dnsZoneFqdn string = '${dnsZoneName}.private.mysql.database.azure.com'
 
 @description('Location for all resources.')
 param location string = resourceGroup().location
@@ -49,19 +49,19 @@ resource mysqlSubnet 'Microsoft.Network/virtualNetworks/subnets@2021-05-01' = {
   }
 }
 
-// resource dnszone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
-//   name: dnsZoneFqdn
-//   location: 'global'
-// }
+resource dnszone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
+  name: dnsZoneFqdn
+  location: 'global'
+}
 
-// resource vnetLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06-01' = {
-//   name: vnet.name
-//   parent: dnszone
-//   location: 'global'
-//   properties: {
-//     registrationEnabled: false
-//     virtualNetwork: {
-//       id: vnet.id
-//     }
-//   }
-// }
+resource vnetLink 'Microsoft.Network/privateDnsZones/virtualNetworkLinks@2020-06-01' = {
+  name: vnet.name
+  parent: dnszone
+  location: 'global'
+  properties: {
+    registrationEnabled: false
+    virtualNetwork: {
+      id: vnet.id
+    }
+  }
+}
