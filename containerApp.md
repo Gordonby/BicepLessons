@@ -19,3 +19,10 @@ az deployment group create -g innerloop -f .\bicep\containerapp\containerapp-dap
 az deployment group create -g innerloop -f .\bicep\containerapp\containerapp-newrevision.bicep
 
 ```
+
+### Screengrabs
+
+Desc | Grab
+---- | ----
+Module that grabs the current revision info | ![image](https://github.com/Gordonby/BicepLessons/assets/17914476/0610ebef-f918-4d14-bc1d-6cd7d3b76f41)
+Later revision carries zero weight | ![image](https://github.com/Gordonby/BicepLessons/assets/17914476/48bb5454-e0d8-4042-9911-439631b0e9b7)
