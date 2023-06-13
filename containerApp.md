@@ -26,3 +26,7 @@ Desc | Grab
 ---- | ----
 Module that grabs the current revision info | ![image](https://github.com/Gordonby/BicepLessons/assets/17914476/0610ebef-f918-4d14-bc1d-6cd7d3b76f41)
 Later revision carries zero weight | ![image](https://github.com/Gordonby/BicepLessons/assets/17914476/48bb5454-e0d8-4042-9911-439631b0e9b7)
+
+### Productionising this
+
+With some additional conditional checks in the bicep it will be easy to cope with first deployments vs subsequent. I'd probably add a new parameter so it could also flip the later revision to a weight of 100%
